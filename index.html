@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CONTENT: Change the page title here -->
     <title>Banana Pseudo | Sustainable Style, 15 PHP</title>
-    <!-- Custom CSS Styles -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
     <style>
-        /* Import Font */
+        
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-        /* Custom Variables: You can alter the primary color scheme here */
         :root {
-            --color-banana-green: #064e3b; /* Deep Emerald Green (Primary Background) */
-            --color-banana-yellow: #fde047; /* Bright Banana Yellow (Logo Accent) */
+            --color-banana-green: #064e3b; 
+            --color-banana-yellow: #fde047; 
             --color-dark-slate: #1e293b;
             --color-mid-green: #166534;
-            --color-accent-yellow: #f59e0b; /* Main CTA/Price Yellow Accent */
+            --color-accent-yellow: #f59e0b; 
         }
-
-        /* Base Reset and Global Styles */
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
@@ -28,130 +26,92 @@
             margin: 0;
             line-height: 1.5;
             min-height: 100vh;
+            overflow-x: hidden; 
         }
         a { text-decoration: none; }
 
-        /* General Utility Styles */
+        
         .container {
-            max-width: 1280px; /* max-w-7xl */
+            max-width: 1280px; 
             margin-left: auto;
             margin-right: auto;
-            padding-left: 1rem; /* px-4 */
-            padding-right: 1rem; /* px-4 */
+            padding-left: 1rem; 
+            padding-right: 1rem; 
         }
         .text-yellow-accent { color: var(--color-banana-yellow); }
         .bg-banana { background-color: var(--color-banana-green); }
         .shadow-glow { box-shadow: 0 0 25px rgba(253, 224, 71, 0.4); }
 
-        /* --- Header/Navigation Styles --- */
+        
         .header {
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(6, 78, 59, 0.95); /* bg-banana/95 */
-            backdrop-filter: blur(4px); /* Simulating backdrop-blur */
-            border-bottom: 1px solid rgba(133, 77, 14, 0.5); /* border-yellow-700/50 */
+            background-color: rgba(6, 78, 59, 0.95); 
+            backdrop-filter: blur(4px); 
+            border-bottom: 1px solid rgba(133, 77, 14, 0.5); 
         }
         .header-content {
             display: flex;
-            justify-content: space-between;
+           
+            justify-content: center; 
             align-items: center;
-            height: 4rem; /* h-16 */
+            height: 4rem; 
         }
         .logo {
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 800; /* font-extrabold */
-            letter-spacing: 0.05em; /* tracking-wider */
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            letter-spacing: 0.05em; 
             display: flex;
             align-items: center;
         }
-        .nav-link {
-            color: #fff;
-            transition: color 0.3s;
-            padding: 0.5rem 0;
+       
+        .header-logo-img {
+            height: 2.5rem; /* Standard logo size */
+            width: 2.5rem;
+            margin-right: 0.75rem;
+            object-fit: contain;
         }
-        .nav-link:hover { color: var(--color-banana-yellow); }
-        .nav-button {
-            background-color: var(--color-accent-yellow);
-            color: var(--color-dark-slate);
-            border-radius: 9999px; /* rounded-full */
-            padding: 0.375rem 1rem; /* py-1.5 px-4 */
-            font-size: 0.875rem; /* text-sm */
-            font-weight: 700; /* font-bold */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-        .nav-button:hover { background-color: #fcd34d; }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            display: none; /* hidden */
-            background-color: rgba(6, 78, 59, 0.9);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            border-top: 1px solid rgba(133, 77, 14, 0.5);
-        }
-        .mobile-menu.active { display: block; }
-        .mobile-link {
-            display: block;
-            padding: 0.5rem 2rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #fff;
-            transition: background-color 0.3s;
-        }
-        .mobile-link:hover { background-color: #15803d; }
-        .mobile-menu-toggle {
-            display: block;
-            padding: 0.5rem;
-            color: #fff;
-            transition: color 0.3s;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-        .mobile-menu-toggle:hover { color: var(--color-banana-yellow); }
 
-        /* --- Hero Section Styles --- */
+        
         .hero {
-            padding-top: 5rem; /* pt-20 */
-            padding-bottom: 7rem; /* pb-28 */
+            padding-top: 5rem; 
+            padding-bottom: 7rem;
             text-align: center;
             overflow: hidden;
         }
         .hero h1 {
-            font-size: 3rem; /* text-5xl */
-            font-weight: 900; /* font-extrabold */
+            font-size: 3rem; 
+            font-weight: 900; 
             line-height: 1.1;
             letter-spacing: -0.05em;
             margin-bottom: 1rem;
         }
         .hero-subtitle {
             margin-top: 1rem;
-            font-size: 1.25rem; /* text-xl */
-            color: #fef08a; /* yellow-200 */
-            max-width: 64rem; /* max-w-4xl */
+            font-size: 1.25rem; 
+            color: #fef08a; 
+            max-width: 64rem;
             margin-left: auto;
             margin-right: auto;
         }
-
-        /* Price Callout */
         .price-callout {
             margin-top: 2.5rem;
             margin-bottom: 2.5rem;
         }
         .price-box {
             display: inline-block;
-            padding: 1rem; /* p-4 */
+            padding: 1rem;
             background-color: var(--color-accent-yellow);
             color: var(--color-dark-slate);
-            border-radius: 1rem; /* rounded-2xl */
+            border-radius: 1rem; 
             cursor: default;
             transition: transform 0.5s;
         }
         .price-box:hover { transform: scale(1.03); }
         .price-box-main {
-            font-size: 3rem; /* text-5xl */
+            font-size: 3rem; 
             font-weight: 900;
             display: block;
         }
@@ -162,7 +122,7 @@
             margin-top: 0.25rem;
         }
 
-        /* Hero Image */
+        
         .hero-image-container {
             margin-top: 4rem;
             margin-bottom: 4rem;
@@ -170,37 +130,40 @@
             justify-content: center;
         }
         .hero-image {
-            border-radius: 1.5rem; /* rounded-3xl */
+            border-radius: 1.5rem; 
             object-fit: cover;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(6, 78, 59, 0.8);
             max-width: 100%;
             height: auto;
         }
-
-        /* Hero CTA */
         .hero-cta {
             display: inline-block;
-            padding: 1rem 2.5rem; /* py-4 px-10 */
-            font-size: 1.25rem; /* text-xl */
+            padding: 1rem 2.5rem; 
+            font-size: 1.25rem;
             font-weight: 700;
             background-color: var(--color-accent-yellow);
             color: var(--color-dark-slate);
             border-radius: 0.75rem;
-            transition: transform 0.3s, background-color 0.3s;
-            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.5); /* shadow-xl shadow-yellow-500/50 */
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.5);
         }
-        .hero-cta:hover { background-color: #fcd34d; transform: scale(1.05); }
+        /* HOVER ADDITION */
+        .hero-cta:hover { 
+            background-color: #fcd34d; 
+            transform: scale(1.05); 
+            box-shadow: 0 15px 20px -5px rgba(245, 158, 11, 0.7); 
+        }
 
-        /* --- Value Proposition (Sustainability) Section --- */
+        
         .value-section {
             padding-top: 6rem;
             padding-bottom: 6rem;
-            background-color: rgba(20, 83, 45, 0.6); /* bg-green-900/60 */
+            background-color: rgba(20, 83, 45, 0.6); 
             border-top: 1px solid rgba(133, 77, 14, 0.5);
             border-bottom: 1px solid rgba(133, 77, 14, 0.5);
         }
         .value-section h2 {
-            font-size: 2.25rem; /* text-4xl */
+            font-size: 2.25rem; 
             font-weight: 900;
             text-align: center;
             margin-bottom: 4rem;
@@ -209,18 +172,18 @@
         .value-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem; /* gap-12 */
+            gap: 3rem; 
         }
         .value-card {
             padding: 2rem;
             border-radius: 0.75rem;
-            background-color: rgba(22, 101, 52, 0.5); /* bg-green-800/50 */
-            border: 1px solid rgba(22, 101, 52, 0.8); /* border-green-700/80 */
+            background-color: rgba(22, 101, 52, 0.5); 
+            border: 1px solid rgba(22, 101, 52, 0.8); 
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.5s;
         }
         .value-card:hover {
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); /* hover:shadow-yellow-500/20 */
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); 
         }
         .value-icon {
             color: var(--color-banana-yellow);
@@ -229,13 +192,13 @@
             margin-bottom: 1rem;
         }
         .value-card h3 {
-            font-size: 1.5rem; /* text-2xl */
+            font-size: 1.5rem; 
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: #fff;
         }
         .value-card p {
-            color: #bbf7d0; /* text-green-200 */
+            color: #bbf7d0; 
         }
 
         /* --- Product Showcase Styles --- */
@@ -250,22 +213,40 @@
             margin-bottom: 4rem;
             color: #fff;
         }
+        
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* grid-cols-2 */
-            gap: 1.5rem; /* gap-6 */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1.5rem; 
         }
+        
+        @media (max-width: 1023px) and (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                max-width: 50rem; 
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media (max-width: 767px) {
+            .product-grid {
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+        }
+
         .product-item {
-            background-color: var(--color-mid-green); /* bg-green-800 */
+            background-color: var(--color-mid-green); 
             border-radius: 0.75rem;
             overflow: hidden;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            cursor: pointer; 
         }
         .product-item:hover { transform: scale(1.03); }
         .product-item img {
             width: 100%;
-            height: 12rem; /* h-48 */
+            height: 12rem; 
             object-fit: cover;
         }
         .product-info {
@@ -273,12 +254,12 @@
             text-align: center;
         }
         .product-info h4 {
-            font-size: 1.125rem; /* text-lg */
+            font-size: 1.125rem; 
             font-weight: 600;
             color: #fff;
         }
         .product-info p {
-            font-size: 1.25rem; /* text-xl */
+            font-size: 1.25rem; 
             font-weight: 700;
             color: var(--color-banana-yellow);
         }
@@ -287,60 +268,62 @@
         .cta-section {
             padding-top: 6rem;
             padding-bottom: 6rem;
-            background-color: rgba(245, 158, 11, 0.9); /* bg-yellow-500/90 */
+            background-color: rgba(245, 158, 11, 0.9); 
             color: var(--color-dark-slate);
             text-align: center;
         }
         .cta-section p {
-            font-size: 3rem; /* text-5xl */
+            font-size: 3rem; 
             font-weight: 900;
             margin-bottom: 1rem;
             line-height: 1;
         }
         .cta-section h2 {
-            font-size: 1.875rem; /* text-3xl */
+            font-size: 1.875rem; 
             font-weight: 900;
             margin-bottom: 2rem;
         }
         .cta-button {
             display: inline-block;
-            width: 100%; /* w-full */
-            padding: 1rem 3rem; /* py-4 px-12 */
-            font-size: 1.25rem; /* text-xl */
+            width: 100%; 
+            padding: 1rem 3rem; 
+            font-size: 1.25rem; 
             font-weight: 700;
             background-color: var(--color-dark-slate);
             color: var(--color-accent-yellow);
             border-radius: 0.75rem;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 25px 50px -12px rgba(30, 41, 59, 0.5); /* shadow-2xl shadow-slate-900/50 */
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 25px 50px -12px rgba(30, 41, 59, 0.5); 
             border: none;
             cursor: pointer;
         }
+        /* HOVER ADDITION */
         .cta-button:hover {
-            background-color: #334155; /* hover:bg-slate-800 */
+            background-color: #334155; 
             transform: scale(1.03);
+            box-shadow: 0 30px 60px -15px rgba(30, 41, 59, 0.7); 
         }
 
         /* --- Footer Styles --- */
         .footer {
             background-color: var(--color-dark-slate);
-            border-top: 1px solid #78350f; /* border-yellow-900 */
+            border-top: 1px solid #78350f; 
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
         .footer p {
-            color: #94a3b8; /* text-slate-500 */
+            color: #94a3b8; 
             font-size: 0.875rem;
         }
         
         .footer a.strong-link {
-            color: #fff; /* White links */
+            color: #fff; 
         }
         .footer a.strong-link:hover {
-             color: var(--color-banana-yellow); /* Bright yellow on hover */
+             color: var(--color-banana-yellow); 
         }
         .footer strong {
-            color: var(--color-banana-yellow); /* Make labels stand out */
+            color: var(--color-banana-yellow); 
             font-weight: 700;
         }
         .button-group {
@@ -351,7 +334,7 @@
         }
 
 
-        /* --- Message Box Styles --- */
+        /* --- Reusable Modal/Message Box Styles --- */
         .message-box-overlay {
             position: fixed;
             inset: 0;
@@ -379,7 +362,7 @@
             color: var(--color-dark-slate);
         }
         .message-box-card p {
-            color: #475569; /* slate-600 */
+            color: #475569; 
             margin-bottom: 1.5rem;
         }
         .message-box-button {
@@ -387,151 +370,148 @@
             background-color: var(--color-accent-yellow);
             color: var(--color-dark-slate);
             border-radius: 0.5rem;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s; 
             font-size: 0.875rem;
             font-weight: 600;
             border: none;
             cursor: pointer;
         }
-        .message-box-button:hover { background-color: #fcd34d; }
-        .border-success { border-top-color: #16a34a !important; } /* green-600 */
-        .border-error { border-top-color: #dc2626 !important; }   /* red-600 */
+        /* HOVER ADDITION */
+        .message-box-button:hover { 
+            background-color: #fcd34d; 
+            transform: translateY(-2px);
+        }
+
+        /* --- Image Preview Modal Specific Styles --- */
+        #image-preview-modal .modal-content {
+            background-color: transparent; 
+            max-width: 90vw; 
+            max-height: 90vh;
+            padding: 0; 
+            border-radius: 0;
+            border-top: none;
+            position: relative;
+        }
+        #preview-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto; 
+            height: auto; 
+            display: block;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+        }
+        #image-preview-modal .close-button {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background-color: #fff;
+            color: var(--color-dark-slate);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid var(--color-dark-slate);
+            z-index: 10;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        #image-preview-modal .close-button:hover {
+            background-color: var(--color-accent-yellow);
+            transform: scale(1.1);
+        }
 
 
         /* --- Media Queries (Responsiveness) --- */
 
         /* MD Breakpoint (min-width: 768px) */
         @media (min-width: 768px) {
-            .mobile-menu-toggle { display: none; } /* Mobile Menu Button hides */
-            .nav-links-desktop {
-                display: flex;
-                gap: 1.5rem; /* space-x-6 */
-                font-weight: 500;
-                align-items: center;
-            }
-            .mobile-menu { display: none; }
-            .hero h1 { font-size: 4rem; } /* sm:text-6xl */
-            .price-box { padding: 1.5rem 1.5rem; } /* sm:p-6 */
-            .price-box-main { font-size: 4rem; } /* sm:text-6xl */
-            .price-box-sub { font-size: 1rem; } /* sm:text-base */
-            .cta-button { width: auto; } /* sm:w-auto */
-            .cta-section p { font-size: 4.5rem; } /* sm:text-7xl */
+            
+            .hero h1 { font-size: 4rem; } 
+            .price-box { padding: 1.5rem 1.5rem; } 
+            .price-box-main { font-size: 4rem; } 
+            .price-box-sub { font-size: 1rem; } 
+            .cta-button { width: auto; } 
+            .cta-section p { font-size: 4.5rem; } 
             .footer .separator { display: inline; }
-        }
-
-        /* SM Breakpoint (min-width: 640px) and (max-width: 767px) */
-        @media (min-width: 640px) and (max-width: 767px) {
-            .hero h1 { font-size: 4rem; } /* sm:text-6xl */
-            .price-box { padding: 1.5rem 1.5rem; } /* sm:p-6 */
-            .price-box-main { font-size: 4rem; } /* sm:text-6xl */
-            .price-box-sub { font-size: 1rem; } /* sm:text-base */
-            .cta-button { width: auto; } /* sm:w-auto */
-            .cta-section p { font-size: 4.5rem; } /* sm:text-7xl */
         }
 
         /* LG Breakpoint (min-width: 1024px) */
         @media (min-width: 1024px) {
-            .hero h1 { font-size: 4.5rem; } /* lg:text-7xl */
+            .hero h1 { font-size: 4.5rem; } 
             .value-grid { grid-template-columns: repeat(3, 1fr); }
-            .product-grid { grid-template-columns: repeat(4, 1fr); }
-            .container { padding-left: 2rem; padding-right: 2rem; } /* lg:px-8 */
+            .product-grid { grid-template-columns: repeat(4, 1fr); } 
+            .container { padding-left: 2rem; padding-right: 2rem; } 
         }
 
         /* Mobile (Max-width: 767px) */
         @media (max-width: 767px) {
-            .nav-links-desktop { display: none; }
-            .footer .separator { display: none; } /* Hide separators on small screens for better stacking */
+            
+            .footer .separator { display: none; } 
         }
 
     </style>
 </head>
 <body class="bg-banana min-h-screen">
 
-    <!-- Navigation Bar -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 
                 <a href="#hero" class="logo text-yellow-accent">
-                    <span style="margin-right: 0.5rem; font-size: 1.875rem;">🍌</span> Banana Pseudo
+                    <img src="https://i.imgur.com/nsxfBkD.png" alt="Banana Pseudo Logo" class="header-logo-img">
+                    
+                    Banana Pseudo
                 </a>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="nav-links-desktop">
-                   
-                    <a href="#sustainability" class="nav-link">Our Mission</a>
-                    <a href="#products" class="nav-link">Products</a>
-                    
-                    <a href="#price" class="nav-button">
-                        Only ₱15
-                    </a>
-                </nav>
-
-                
-                <button id="menu-button" class="mobile-menu-toggle">
-                    <!-- Hamburger Icon (Inline SVG) -->
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
+                </div>
         </div>
 
-        <!-- Mobile Menu (Links match desktop links) -->
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="#sustainability" class="mobile-link">Our Mission</a>
-            <a href="#products" class="mobile-link">Products</a>
-            <a href="#price" class="mobile-link" style="margin: 1rem 2rem 0 2rem; text-align: center; background-color: var(--color-accent-yellow); color: var(--color-dark-slate); border-radius: 0.5rem; padding: 0.5rem 1rem;">
-                Shop Now for ₱15
-            </a>
-        </div>
-    </header>
+        </header>
 
     <main>
-        <!-- 1. Hero Section -->
         <section id="hero" class="hero bg-banana">
             <div class="container">
                 
-                <h1>
+                <h1 class="hero-h1-gsap">
                     Style Meets <span style="color: var(--color-accent-yellow);">Sustainability</span>.
                 </h1>
-                <!-- CONTENT: Change the main sub-headline here -->
-                <p class="hero-subtitle">
+                
+                <p class="hero-subtitle hero-p-gsap">
                     Transforming banana pseudo-stems one banana at a time.
                 </p>
 
-                <!-- Featured Price Callout -->
-                <div class="price-callout">
+                <div class="price-callout hero-price-gsap">
                     <div class="price-box shadow-glow">
-                        <!-- CONTENT: Change the primary price text here -->
                         <span class="price-box-main">ONLY ₱15</span>
-                        <!-- CONTENT: Change the price subtitle text here -->
                         <span class="price-box-sub">per item</span>
                     </div>
                 </div>
 
-                <!-- HERO IMAGE: CRITICAL OPTIMIZATION CHANGE -->
-                <div class="hero-image-container">
+                <div class="hero-image-container hero-img-gsap">
                     <img src="https://i.imgur.com/Iq2FWiO.jpeg"
-                         alt="Banana Pseudo Product Showcase"
-                         class="hero-image"
-                         onerror="this.onerror=null;this.src='https://i.imgur.com/Iq2FWiO.jpeg'">
+                             alt="Banana Pseudo Product Showcase"
+                             class="hero-image"
+                             onerror="this.onerror=null;this.src='https://i.imgur.com/Iq2FWiO.jpeg'">
                 </div>
 
-                <a href="#price" class="hero-cta">
+                <a href="#price" class="hero-cta hero-cta-gsap">
                     Discover 15 PHP Value
                 </a>
             </div>
         </section>
 
-        <!-- 2. Value Proposition Section -->
         <section id="sustainability" class="value-section">
             <div class="container">
-                <h2>Why Banana Pseudo?</h2>
+                <h2 class="value-h2-gsap">Why Banana Pseudo?</h2>
 
                 <div class="value-grid">
 
-                    <!-- Card 1: Sustainability -->
-                    <div class="value-card">
-                        <!-- ICON: SVG icon for the feature is here -->
+                    <div class="value-card value-card-gsap">
                         <div class="value-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
@@ -539,9 +519,7 @@
                         <p>We utilize the pseudo-stem fiber—a byproduct of banana harvesting—turning agricultural waste into durable, beautiful goods. 100% biodegradable.</p>
                     </div>
 
-                    <!-- Card 2: Style -->
-                    <div class="value-card">
-                        <!-- ICON: SVG icon for the feature is here -->
+                    <div class="value-card value-card-gsap">
                         <div class="value-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857H21l-5.429 4.143L17.571 21 12 17.857 6.429 21l2.285-6.857L3 9.857h6.714L12 3z" /></svg>
                         </div>
@@ -549,9 +527,7 @@
                         <p>The fiber boasts a natural, elegant texture that we shape into modern, minimalist designs. Style that doesn't cost the Earth.</p>
                     </div>
 
-                    <!-- Card 3: Affordability -->
-                    <div class="value-card">
-                        <!-- ICON: SVG icon for the feature is here -->
+                    <div class="value-card value-card-gsap">
                         <div class="value-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.592 1L15 11h-1v1h-1v1h-1v1h-1v-1h-1v-1h-1v-1h-1L6.408 10.402C6.92 9.497 7.89 9 9 9h3z" /></svg>
                         </div>
@@ -562,16 +538,15 @@
             </div>
         </section>
 
-        <!-- 3. Product Showcase (Simplified) -->
         <section id="products" class="product-section">
             <div class="container">
-                <!-- CONTENT: Change the Product Section Title here -->
-                <h2>The Collection</h2>
+                
+                <h2 class="product-h2-gsap">The Collection</h2>
 
                 <div class="product-grid">
 
-                    <!-- Product Item 1: Eco Bag -->
-                    <div class="product-item">
+                    <div class="product-item product-item-gsap" 
+                        onclick="showImagePreview('https://i.imgur.com/lICTA92.jpeg')">
                         <img src="https://i.imgur.com/lICTA92.jpeg"
                              alt="Desk Organizer Tray"
                              onerror="this.onerror=null;this.src='https://i.imgur.com/lICTA92.jpeg'">
@@ -581,8 +556,8 @@
                         </div>
                     </div>
 
-                    <!-- Product Item 2: Ropes -->
-                    <div class="product-item">
+                    <div class="product-item product-item-gsap"
+                        onclick="showImagePreview('https://i.imgur.com/qxiW2pH.jpeg')">
                         <img src="https://i.imgur.com/qxiW2pH.jpeg"
                              alt="Minimalist Clutch Bag"
                              onerror="this.onerror=null;this.src='https://i.imgur.com/qxiW2pH.jpeg'">
@@ -592,8 +567,8 @@
                         </div>
                     </div>
 
-                    <!-- Product Item 3: Gift Wraps -->
-                    <div class="product-item">
+                    <div class="product-item product-item-gsap"
+                        onclick="showImagePreview('https://i.imgur.com/34lrg2R.jpeg')">
                         <img src="https://i.imgur.com/34lrg2R.jpeg"
                              alt="Coaster Set"
                              onerror="this.onerror=null;this.src='https://i.imgur.com/34lrg2R.jpeg'">
@@ -603,8 +578,8 @@
                         </div>
                     </div>
 
-                    <!-- Product Item 4: Bouquet Holder -->
-                    <div class="product-item">
+                    <div class="product-item product-item-gsap"
+                        onclick="showImagePreview('https://i.imgur.com/aEsQsto.jpeg')">
                         <img src="https://i.imgur.com/aEsQsto.jpeg"
                              alt="Notebook Cover"
                              onerror="this.onerror=null;this.src='https://i.imgur.com/aEsQsto.jpeg'">
@@ -614,22 +589,31 @@
                         </div>
                     </div>
 
+                    <div class="product-item product-item-gsap"
+                        onclick="showImagePreview('https://i.imgur.com/nce90JB.jpeg')">
+                        <img src="https://i.imgur.com/nce90JB.jpeg"
+                             alt="Paper-like Cardboard"
+                             onerror="this.onerror=null;this.src='https://i.imgur.com/nce90JB.jpeg'">
+                        <div class="product-info">
+                            <h4>Sheets</h4>
+                            <p class="text-yellow-accent">₱15</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- 4. Final CTA / Price Confirmation -->
         <section id="price" class="cta-section">
             <div class="container" style="max-width: 32rem; margin-left: auto; margin-right: auto;">
-                <p>
+                <p class="cta-p-gsap">
                     ₱15.00
                 </p>
-                <h2>
+                <h2 class="cta-h2-gsap">
                     The Beautiful Choice For A Sustainable Future.
                 </h2>
-                <!-- BUTTON UPDATED TO CALL FACEBOOK MODAL -->
                 <button onclick="showFacebookModal()"
-                    class="cta-button">
+                    class="cta-button cta-button-gsap">
                     Buy Now
                 </button>
             </div>
@@ -637,27 +621,23 @@
 
     </main>
 
-    <!-- Footer - CONTACT DETAILS -->
     <footer class="footer">
         <div class="container" style="text-align: center;">
             <p style="font-weight: 600; font-size: 1rem; color: #fff; margin-bottom: 0.75rem;">
                 Connect with Banana Pseudo
             </p>
             <p style="font-size: 0.875rem; color: #fff;">
-                <!-- Social Media Links -->
                 <strong>FB:</strong> <a href="https://www.facebook.com/profile.php?id=61566250813107" target="_blank" class="strong-link">Banana Pseudo Multipurpose materials</a>
                 <span class="separator"> | </span>
                 <br class="md:hidden">
                 <strong>TikTok:</strong> <a href="#" target="_blank" class="strong-link">Pseudo Multipurpose</a>
             </p>
             <p style="font-size: 0.875rem; color: #fff; margin-top: 0.5rem;">
-                <!-- Contact Info -->
                 <strong>Email:</strong> <a href="mailto:pseudomultipurposematerials@gmail.com" class="strong-link">pseudomultipurposematerials@gmail.com</a>
                 <span class="separator"> | </span>
                 <br class="md:hidden">
                 <strong>Call/Viber:</strong> <a href="tel:+639480103467" class="strong-link">0948-010-3467</a>
             </p>
-            <!-- Copyright -->
             <p style="margin-top: 1.5rem; color: #94a3b8; font-size: 0.75rem;">
                 &copy; 2025 Banana Pseudo Inc.
             </p>
@@ -665,19 +645,16 @@
     </footer>
 
 
-    <!-- Custom Message Box (Replaces alert()) - Generic Use -->
-    <div id="message-box" class="message-box-overlay">
-        <div class="message-box-card">
-            <!-- These are populated by the showMessageBox JS function -->
-            <h3 id="message-title">Title</h3>
-            <p id="message-content">Content</p>
-            <button onclick="closeMessageBox()" class="message-box-button">
-                Got It
+    <div id="image-preview-modal" class="message-box-overlay" onclick="closeImagePreview()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-button" onclick="closeImagePreview()">
+                &times;
             </button>
+            <img id="preview-image" src="" alt="Product Preview" />
         </div>
     </div>
 
-    <!-- START: DEDICATED FACEBOOK REDIRECT MODAL -->
+
     <div id="facebook-modal" class="message-box-overlay">
         <div class="message-box-card" style="border-top: 4px solid var(--color-mid-green);">
             <h3 id="facebook-title">Order Your Sustainable Style!</h3>
@@ -694,84 +671,77 @@
             </div>
         </div>
     </div>
-    <!-- END: DEDICATED FACEBOOK REDIRECT MODAL -->
 
 
     <script>
+        // Register the ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- GSAP Animations ---
+        gsap.timeline()
+            .from(".logo", { duration: 0.5, y: -50, opacity: 0 })
+            .from(".hero-h1-gsap", { duration: 1, opacity: 0, y: 50, ease: "power2.out" }, 0.3)
+            .from(".hero-p-gsap", { duration: 0.8, opacity: 0, y: 30, ease: "power1.out" }, 0.6)
+            .from(".hero-price-gsap", { duration: 0.6, opacity: 0, scale: 0.8, ease: "back.out(1.7)" }, 0.8)
+            .from(".hero-img-gsap", { duration: 1, opacity: 0, y: 50, scale: 0.95, ease: "power2.out" }, 1.2)
+            .from(".hero-cta-gsap", { duration: 0.5, opacity: 0, scale: 0, ease: "back.out(2)" }, 1.8);
+        
+        gsap.from(".value-card-gsap", {
+            scrollTrigger: { trigger: ".value-section", start: "top 80%", end: "bottom 20%", },
+            y: 50, opacity: 0, scale: 0.9, stagger: 0.25, duration: 0.8, ease: "power2.out"
+        });
+        
+        gsap.from(".product-item-gsap", {
+            scrollTrigger: { trigger: ".product-section", start: "top 75%", end: "bottom 20%", },
+            x: 50, opacity: 0, stagger: 0.15, duration: 0.6, ease: "power1.out"
+        });
+        
+        gsap.from(".cta-section > .container > *", {
+            scrollTrigger: { trigger: ".cta-section", start: "top 85%", },
+            y: 30, opacity: 0, stagger: 0.2, duration: 0.7, ease: "power2.out"
+        });
+
         // --- JavaScript for Mobile Menu Toggling ---
-        const menuButton = document.getElementById('menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when a link is clicked
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // --- JavaScript for Custom Message Box (Replacing alert()) ---
-        const messageBox = document.getElementById('message-box');
-        const messageTitle = document.getElementById('message-title');
-        const messageContent = document.getElementById('message-content');
-        const messageBoxCard = messageBox.querySelector('.message-box-card');
-
-        // This generic function remains for other potential messages
-        function showMessageBox(title, content, type = 'info') {
-            messageTitle.textContent = title;
-            messageContent.textContent = content;
-
-            // Update border color based on type
-            messageBoxCard.classList.remove('border-success', 'border-error');
-            // Reset base border color for default case
-            messageBoxCard.style.borderTopColor = 'var(--color-accent-yellow)';
-
-            if (type === 'success') {
-                messageBoxCard.classList.add('border-success');
-                messageBoxCard.style.borderTopColor = ''; // Use CSS class color
-            } else if (type === 'error') {
-                messageBoxCard.classList.add('border-error');
-                messageBoxCard.style.borderTopColor = ''; // Use CSS class color
-            }
-
-            messageBox.classList.remove('hidden');
-            messageBox.classList.add('flex');
-        }
-
-        function closeMessageBox() {
-            messageBox.classList.add('hidden');
-            messageBox.classList.remove('flex');
-        }
-
-        // --- Facebook Redirect Logic ---
+        // --- JavaScript for Facebook Redirect Modal ---
         const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61566250813107';
         const facebookModal = document.getElementById('facebook-modal');
 
-        /**
-         * Shows the dedicated Facebook modal.
-         */
         function showFacebookModal() {
             facebookModal.classList.remove('hidden');
             facebookModal.classList.add('flex');
         }
 
-        /**
-         * Hides the dedicated Facebook modal.
-         */
         function closeFacebookModal() {
             facebookModal.classList.add('hidden');
             facebookModal.classList.remove('flex');
         }
 
-        /**
-         * Confirms the redirect and opens the Facebook URL in a new window/tab.
-         */
         function confirmRedirect() {
             window.open(FACEBOOK_URL, '_blank');
             closeFacebookModal();
+        }
+        
+        // --- JAVASCRIPT FOR IMAGE PREVIEW MODAL ---
+        const imagePreviewModal = document.getElementById('image-preview-modal');
+        const previewImage = document.getElementById('preview-image');
+
+        /**
+         * Shows the image preview modal (lightbox).
+         * @param {string} imageUrl The URL of the image to display.
+         */
+        function showImagePreview(imageUrl) {
+            previewImage.src = imageUrl;
+            imagePreviewModal.classList.remove('hidden');
+            imagePreviewModal.classList.add('flex');
+        }
+
+        /**
+         * Hides the image preview modal.
+         */
+        function closeImagePreview() {
+            imagePreviewModal.classList.add('hidden');
+            imagePreviewModal.classList.remove('flex');
         }
     </script>
 </body>
