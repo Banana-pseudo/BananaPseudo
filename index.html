@@ -3,746 +3,941 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banana Pseudo | Sustainable Style, 15 PHP</title>
+    <title>Eco Banana Multipurpose Materials - Sustainable Fiber Products</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
     
     <style>
-        
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
         :root {
-            --color-banana-green: #064e3b; 
-            --color-banana-yellow: #fde047; 
-            --color-dark-slate: #1e293b;
-            --color-mid-green: #166534;
-            --color-accent-yellow: #f59e0b; 
+            --color-primary: #388E3C; 
+            --color-secondary: #81C784; 
+            --color-accent: #FFB300; 
+            --color-text-dark: #212121;
+            --color-text-light: #fff;
+            --color-background: #F8F8F8;
+            --color-section-bg: #EFEFEF; 
+            --font-main: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-banana-green);
-            color: #fff;
+
+        * {
             margin: 0;
-            line-height: 1.5;
-            min-height: 100vh;
-            overflow-x: hidden; 
+            padding: 0;
+            box-sizing: border-box;
         }
-        a { text-decoration: none; }
 
-        
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-dark);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
         .container {
-            max-width: 1280px; 
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem; 
-            padding-right: 1rem; 
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        .text-yellow-accent { color: var(--color-banana-yellow); }
-        .bg-banana { background-color: var(--color-banana-green); }
-        .shadow-glow { box-shadow: 0 0 25px rgba(253, 224, 71, 0.4); }
 
+        h2 {
+            font-size: 2.5em;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
         
-        .header {
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 3px;
+            width: 80px;
+            background-color: var(--color-secondary);
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 80px 0;
+            min-height: 50vh;
+        }
+
+       
+        .separator {
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+            margin: 0 auto;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+       
+        section:not(#home) {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+       
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 50;
-            background-color: rgba(6, 78, 59, 0.95); 
-            backdrop-filter: blur(4px); 
-            border-bottom: 1px solid rgba(133, 77, 14, 0.5); 
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
         }
-        .header-content {
-            display: flex;
-           
-            justify-content: center; 
-            align-items: center;
-            height: 4rem; 
-        }
+
         .logo {
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            letter-spacing: 0.05em; 
+            font-size: 1.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        nav ul a:hover {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        
+        #home {
+            background: linear-gradient(rgba(248, 248, 248, 0.9), rgba(248, 248, 248, 0.9)), url('https://hips.hearstapps.com/hmg-prod/images/17d19793-4d2d-43f0-a0a7-0755eeeb1442.jpeg?resize=980:*') center/cover;
+            text-align: center;
             display: flex;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-       
-        .header-logo-img {
-            height: 2.5rem; /* Standard logo size */
-            width: 2.5rem;
-            margin-right: 0.75rem;
-            object-fit: contain;
+        .hero-content {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 900px;
         }
-
-
-        
-        .hero {
-            padding-top: 5rem; 
-            padding-bottom: 7rem;
-            text-align: center;
-            overflow: hidden;
+        #home h1 {
+            font-size: 4em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-weight: 800;
         }
-        .hero h1 {
-            font-size: 3rem; 
-            font-weight: 900; 
-            line-height: 1.1;
-            letter-spacing: -0.05em;
-            margin-bottom: 1rem;
-        }
-        .hero-subtitle {
-            margin-top: 1rem;
-            font-size: 1.25rem; 
-            color: #fef08a; 
-            max-width: 64rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .price-callout {
-            margin-top: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-        .price-box {
-            display: inline-block;
-            padding: 1rem;
-            background-color: var(--color-accent-yellow);
-            color: var(--color-dark-slate);
-            border-radius: 1rem; 
-            cursor: default;
-            transition: transform 0.5s;
-        }
-        .price-box:hover { transform: scale(1.03); }
-        .price-box-main {
-            font-size: 3rem; 
-            font-weight: 900;
+        #home h2 {
+            font-size: 1.8em;
+            color: var(--color-text-dark);
+            margin-bottom: 30px;
             display: block;
+            border-bottom: none;
         }
-        .price-box-sub {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-top: 0.25rem;
-        }
-
-        
-        .hero-image-container {
-            margin-top: 4rem;
-            margin-bottom: 4rem;
+        .why-choose-list {
+            list-style: none;
+            padding: 0;
             display: flex;
             justify-content: center;
-        }
-        .hero-image {
-            border-radius: 1.5rem; 
-            object-fit: cover;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(6, 78, 59, 0.8);
-            max-width: 100%;
-            height: auto;
-        }
-        .hero-cta {
-            display: inline-block;
-            padding: 1rem 2.5rem; 
-            font-size: 1.25rem;
-            font-weight: 700;
-            background-color: var(--color-accent-yellow);
-            color: var(--color-dark-slate);
-            border-radius: 0.75rem;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; 
-            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.5);
-        }
-        /* HOVER ADDITION */
-        .hero-cta:hover { 
-            background-color: #fcd34d; 
-            transform: scale(1.05); 
-            box-shadow: 0 15px 20px -5px rgba(245, 158, 11, 0.7); 
-        }
-
-        
-        .value-section {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-            background-color: rgba(20, 83, 45, 0.6); 
-            border-top: 1px solid rgba(133, 77, 14, 0.5);
-            border-bottom: 1px solid rgba(133, 77, 14, 0.5);
-        }
-        .value-section h2 {
-            font-size: 2.25rem; 
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #fff;
-        }
-        .value-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem; 
-        }
-        .value-card {
-            padding: 2rem;
-            border-radius: 0.75rem;
-            background-color: rgba(22, 101, 52, 0.5); 
-            border: 1px solid rgba(22, 101, 52, 0.8); 
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.5s;
-        }
-        .value-card:hover {
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); 
-        }
-        .value-icon {
-            color: var(--color-banana-yellow);
-            height: 2.5rem;
-            width: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .value-card h3 {
-            font-size: 1.5rem; 
+            gap: 40px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
             font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #fff;
         }
-        .value-card p {
-            color: #bbf7d0; 
+        .why-choose-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .why-choose-list li i {
+            color: var(--color-secondary);
+            font-size: 1.2em;
         }
 
-        /* --- Product Showcase Styles --- */
-        .product-section {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-accent);
+            color: var(--color-text-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .product-section h2 {
-            font-size: 2.25rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #fff;
+
+        .cta-button:hover {
+            background-color: #FFC107;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .fb-button {
+            background-color: #1877F2;
+            color: var(--color-text-light);
+            margin-top: 30px;
         }
         
+        .fb-button:hover {
+            background-color: #166FE5;
+            color: var(--color-text-light);
+        }
+        
+        .fb-button i {
+            font-size: 1.3em;
+        }
+
+
+        #about {
+            background-color: var(--color-section-bg);
+            text-align: center;
+        }
+        .mission-vision {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .card {
+            flex: 1;
+            padding: 30px;
+            background-color: var(--color-text-light);
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            text-align: left;
+            transition: transform 0.3s;
+            max-width: 500px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card h3 {
+            color: var(--color-primary);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card h3 i {
+            color: var(--color-accent);
+        }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 1.5rem; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        
-        @media (max-width: 1023px) and (min-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                max-width: 50rem; 
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-        @media (max-width: 767px) {
-            .product-grid {
-                grid-template-columns: 1fr; 
-                gap: 2rem;
-            }
-        }
-
         .product-item {
-            background-color: var(--color-mid-green); 
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
-            cursor: pointer; 
+            text-align: center;
+            overflow: hidden; 
         }
-        .product-item:hover { transform: scale(1.03); }
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
         .product-item img {
             width: 100%;
-            height: 12rem; 
+            height: 200px;
             object-fit: cover;
-        }
-        .product-info {
-            padding: 1rem;
-            text-align: center;
-        }
-        .product-info h4 {
-            font-size: 1.125rem; 
-            font-weight: 600;
-            color: #fff;
-        }
-        .product-info p {
-            font-size: 1.25rem; 
-            font-weight: 700;
-            color: var(--color-banana-yellow);
-        }
-
-        /* --- CTA Section Styles --- */
-        .cta-section {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-            background-color: rgba(245, 158, 11, 0.9); 
-            color: var(--color-dark-slate);
-            text-align: center;
-        }
-        .cta-section p {
-            font-size: 3rem; 
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-        .cta-section h2 {
-            font-size: 1.875rem; 
-            font-weight: 900;
-            margin-bottom: 2rem;
-        }
-        .cta-button {
-            display: inline-block;
-            width: 100%; 
-            padding: 1rem 3rem; 
-            font-size: 1.25rem; 
-            font-weight: 700;
-            background-color: var(--color-dark-slate);
-            color: var(--color-accent-yellow);
-            border-radius: 0.75rem;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
-            box-shadow: 0 25px 50px -12px rgba(30, 41, 59, 0.5); 
-            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
             cursor: pointer;
+            transition: opacity 0.2s;
         }
-        /* HOVER ADDITION */
-        .cta-button:hover {
-            background-color: #334155; 
-            transform: scale(1.03);
-            box-shadow: 0 30px 60px -15px rgba(30, 41, 59, 0.7); 
+        .product-item img:hover {
+            opacity: 0.9;
+        }
+        .product-item h4 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
         }
 
-        /* --- Footer Styles --- */
-        .footer {
-            background-color: var(--color-dark-slate);
-            border-top: 1px solid #78350f; 
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+        #how-made {
+            background-color: var(--color-section-bg);
+            text-align: center;
         }
-        .footer p {
-            color: #94a3b8; 
-            font-size: 0.875rem;
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        .step {
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-left: 5px solid var(--color-primary);
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .step h4 {
+            font-size: 1.4em;
+            color: var(--color-secondary);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step h4 i {
+            color: var(--color-primary);
+        }
+
+        #shop {
+            text-align: center;
+        }
+        .price-list table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            box-shadow: var(--shadow-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .price-list th, .price-list td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .price-list th {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            text-align: center;
         }
         
-        .footer a.strong-link {
-            color: #fff; 
+        .payment-info {
+            background-color: #FFFDE7;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px dashed var(--color-accent);
         }
-        .footer a.strong-link:hover {
-             color: var(--color-banana-yellow); 
+        .payment-info h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
         }
-        .footer strong {
-            color: var(--color-banana-yellow); 
-            font-weight: 700;
-        }
-        .button-group {
-            display: flex;
-            justify-content: space-around;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-
-        /* --- Reusable Modal/Message Box Styles --- */
-        .message-box-overlay {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(30, 41, 59, 0.75);
-            z-index: 100;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        .message-box-overlay.flex { display: flex; }
-        .message-box-card {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            max-width: 24rem;
-            width: 100%;
+        
+        #testimonials {
+            background-color: var(--color-section-bg);
             text-align: center;
-            border-top: 4px solid var(--color-accent-yellow);
-        }
-        .message-box-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--color-dark-slate);
-        }
-        .message-box-card p {
-            color: #475569; 
-            margin-bottom: 1.5rem;
-        }
-        .message-box-button {
-            padding: 0.5rem 1.5rem;
-            background-color: var(--color-accent-yellow);
-            color: var(--color-dark-slate);
-            border-radius: 0.5rem;
-            transition: background-color 0.3s, transform 0.2s; 
-            font-size: 0.875rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-        }
-        /* HOVER ADDITION */
-        .message-box-button:hover { 
-            background-color: #fcd34d; 
-            transform: translateY(-2px);
         }
 
-        /* --- Image Preview Modal Specific Styles --- */
-        #image-preview-modal .modal-content {
-            background-color: transparent; 
-            max-width: 90vw; 
-            max-height: 90vh;
-            padding: 0; 
-            border-radius: 0;
-            border-top: none;
-            position: relative;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        #preview-image {
-            max-width: 90vw;
-            max-height: 90vh;
-            width: auto; 
-            height: auto; 
+
+        .testimonial-card {
+            background-color: var(--color-text-light);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            text-align: center;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .testimonial-card img {
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover;
+            border-radius: 8px; 
+            margin-bottom: 15px;
+            border: 4px solid var(--color-secondary);
+            cursor: pointer; 
+            transition: border-color 0.2s;
+        }
+
+        .testimonial-card img:hover {
+            border-color: var(--color-accent);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .testimonial-card strong {
             display: block;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            margin-top: 10px;
+            color: var(--color-primary);
+            font-weight: 700;
         }
-        #image-preview-modal .close-button {
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            background-color: #fff;
-            color: var(--color-dark-slate);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            line-height: 1;
+
+        #contact {
+            text-align: center;
+        }
+        
+        .contact-details {
+            background-color: var(--color-text-light);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-card);
+            max-width: 600px;
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+       
+        .contact-link {
+            text-decoration: none;
+            color: inherit; 
+            display: block;
+            width: 100%;
+            margin-bottom: 5px; 
+            transition: background-color 0.2s;
+            border-radius: 6px;
+        }
+
+        .contact-link:hover {
+            background-color: var(--color-section-bg);
+        }
+        
+        .contact-details p {
+            font-size: 1.1em;
+            margin: 10px 0; 
+            padding: 5px 10px; 
             display: flex;
             align-items: center;
+            gap: 10px;
             justify-content: center;
+        }
+        .contact-details p i {
+            color: var(--color-primary);
+            font-size: 1.3em;
+        }
+
+     
+        footer {
+            background-color: var(--color-text-dark);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+       
+        .lightbox {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh; 
+            object-fit: contain; 
+        }
+
+       
+        #lightbox-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+       
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
             cursor: pointer;
-            border: 2px solid var(--color-dark-slate);
-            z-index: 10;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-        #image-preview-modal .close-button:hover {
-            background-color: var(--color-accent-yellow);
-            transform: scale(1.1);
         }
 
-
-        /* --- Media Queries (Responsiveness) --- */
-
-        /* MD Breakpoint (min-width: 768px) */
-        @media (min-width: 768px) {
-            
-            .hero h1 { font-size: 4rem; } 
-            .price-box { padding: 1.5rem 1.5rem; } 
-            .price-box-main { font-size: 4rem; } 
-            .price-box-sub { font-size: 1rem; } 
-            .cta-button { width: auto; } 
-            .cta-section p { font-size: 4.5rem; } 
-            .footer .separator { display: inline; }
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
         }
-
-        /* LG Breakpoint (min-width: 1024px) */
-        @media (min-width: 1024px) {
-            .hero h1 { font-size: 4.5rem; } 
-            .value-grid { grid-template-columns: repeat(3, 1fr); }
-            .product-grid { grid-template-columns: repeat(4, 1fr); } 
-            .container { padding-left: 2rem; padding-right: 2rem; } 
+        
+      
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .why-choose-list {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .mission-vision {
+                flex-direction: column;
+            }
+            .price-list table {
+                width: 100%;
+            }
+            #home h1 {
+                font-size: 3em;
+            }
+          
+            .lightbox-content {
+                width: 100%;
+            }
+            .lightbox-close {
+                top: 5px;
+                right: 20px;
+                font-size: 30px;
+            }
+         
+            .contact-details {
+                padding: 20px;
+            }
         }
-
-        /* Mobile (Max-width: 767px) */
-        @media (max-width: 767px) {
-            
-            .footer .separator { display: none; } 
-        }
-
     </style>
 </head>
-<body class="bg-banana min-h-screen">
+<body>
 
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                
-                <a href="#hero" class="logo text-yellow-accent">
-                    <img src="https://i.imgur.com/nsxfBkD.png" alt="Banana Pseudo Logo" class="header-logo-img">
-                    
-                    Banana Pseudo
-                </a>
+    <header>
+        <nav>
+            <div class="logo">Eco Banano</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#how-made">Process</a></li>
+                <li><a href="#shop">Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-                </div>
+    <section id="home">
+        <div class="hero-content">
+            <h1>Eco Banano Multipurpose Materials</h1>
+            <h2>Turning banana waste into useful and eco-friendly products.</h2>
+            <p>We utilize the discarded **banana pseudo-stems** to transform agricultural waste into durable, sustainable, and practical materials.</p>
+            
+            <ul class="why-choose-list">
+                <li><i class="fas fa-leaf"></i> Eco-friendly</li>
+                <li><i class="fas fa-hand-paper"></i> Handmade</li>
+                <li><i class="fas fa-user-check"></i> Quality Assured</li>
+                <li><i class="fas fa-seedling"></i> Supports Local Farmers</li>
+            </ul>
+
+            <a href="#shop" class="cta-button">
+                <i class="fas fa-shopping-cart"></i> View Products & Order
+            </a>
         </div>
+    </section>
 
-        </header>
+  
+    <div class="separator"></div>
 
-    <main>
-        <section id="hero" class="hero bg-banana">
-            <div class="container">
-                
-                <h1 class="hero-h1-gsap">
-                    Style Meets <span style="color: var(--color-accent-yellow);">Sustainability</span>.
-                </h1>
-                
-                <p class="hero-subtitle hero-p-gsap">
-                    Transforming banana pseudo-stems one banana at a time.
+    <section id="about" class="container">
+        <h2>About Eco Banano</h2>
+        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 40px;">Eco Banano is a student-led business dedicated to sustainability. We collect banana pseudo-stems and convert them into reusable and multipurpose materials. Instead of letting agricultural waste go to landfill or be burned, we turn it into something useful, championing the circular economy.</p>
+        
+        <div class="mission-vision">
+            <div class="card">
+                <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                <p>Eco Banano aims to secure a significant share of the banana-based product market by prioritizing **sustainable and ethical sourcing**. This is followed by consistent production and distribution, establishing reliable supply chains and community partnerships.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-binoculars"></i> Our Vision</h3>
+                <p>The long-term vision focuses on **sustained growth, market expansion**, and building a strong brand reputation for high-quality, sustainable, and innovative banana-based products that inspire others to reduce waste and choose eco-friendly alternatives.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <div class="separator"></div>
+    
+    <section id="products" class="container">
+        <h2>Our Sustainable Products</h2>
+        
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://i.imgur.com/rMEz3Gw.jpeg" alt="Banana Fiber Sheets">
+                <h4>1. Banana Fiber Sheets</h4>
+                <p>Durable and eco-friendly paper. Perfect for crafts, unique packaging, and creative projects.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/Iq2FWiO.jpeg" alt="Paper Bag">
+                <h4>2. Sustainable Paper Bags</h4>
+                <p>Sturdy and biodegradable bags made from processed banana fibers, a green alternative to plastic.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/TjQM1xD.jpeg" alt="Wrapper Bouquet">
+                <h4>3. Bouquet Wrappers</h4>
+                <p>Natural banana fiber wrappers ideal for a rustic and elegant look for flower arrangements and gifts.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/FSCCiku.jpeg" alt="Banana Fiber Rope">
+                <h4>4. Banana Fiber Rope</h4>
+                <p>A strong, flexible, and fully natural rope ideal for gardening, macrame, and decorative purposes.</p>
+            </div>
+            <div class="product-item">
+                <img src="https://i.imgur.com/uZ99MMX.jpeg" alt="Gift Wrapping Sheets">
+                <h4>5. Gift Wrapping Sheets</h4>
+                <p>Give gifts sustainably with our unique, textured wrapping sheets.</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <div class="separator"></div>
+
+    <section id="how-made" class="container">
+        <h2>Our Eco-Friendly Process</h2>
+        <p style="text-align: center; margin-bottom: 30px;">See the steps we take to transform agricultural waste into valuable, multipurpose materials.</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <h4><i class="fas fa-hand-holding-box"></i> 1. Collection & Sourcing</h4>
+                <p>We gather discarded banana pseudo-stems from local farmers, ensuring we use what would otherwise be waste.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-cut"></i> 2. Fiber Extraction</h4>
+                <p>The coarse, natural fibers are carefully separated from the stem using a manual or semi-mechanical process.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-sun"></i> 3. Natural Drying</h4>
+                <p>The extracted fibers are naturally air and sun-dried to remove all moisture and maintain their natural strength.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-blender"></i> 4. Pulping & Processing</h4>
+                <p>Fibers are pulped, cleaned, and treated using eco-friendly methods to prepare them for material formation.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-drafting-compass"></i> 5. Forming & Shaping</h4>
+                <p>The prepared pulp is pressed and formed into sheets, ropes, or bags, depending on the final product.</p>
+            </div>
+            <div class="step">
+                <h4><i class="fas fa-check-circle"></i> 6. Quality Finishing</h4>
+                <p>The final products are inspected, trimmed, and packaged, ensuring high quality and durability for the customer.</p>
+            </div>
+        </div>
+    </section>
+    
+  
+    <div class="separator"></div>
+
+    <section id="shop" class="container">
+        <h2>Ready to Order?</h2>
+        
+        <div class="payment-info card">
+            <h3>How to Purchase:</h3>
+            <p><strong>To Order:</strong> Click the Facebook Messenger button below to place your order or send an inquiry!</p>
+            <p><strong>Payment Methods:</strong> GCash, Cash-on-Delivery, Meet-up (Local Only)</p>
+            <p><strong>Delivery:</strong> Available for shipping (fees apply) or local meet-up/pick-up.</p>
+        </div>
+        
+        <a 
+            href="https://www.facebook.com/profile.php?id=61566250813107" 
+            target="_blank" 
+            class="cta-button fb-button"
+            rel="noopener noreferrer"
+        >
+            <i class="fab fa-facebook-messenger"></i> Message Us to Order
+        </a>
+
+        <h3 style="margin-top: 60px;">Price List</h3>
+        <div class="price-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Banana Fiber Sheets</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                    <tr>
+                        <td>Paper Bags</td>
+                        <td>₱15 (Small), ₱20 (Medium), ₱25 (Large) per piece</td>
+                    </tr>
+                    <tr>
+                        <td>Bouquet Wrapper</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                    <tr>
+                        <td>Banana Fiber Rope</td>
+                        <td>₱15 per meter</td>
+                    </tr>
+                    <tr>
+                        <td>Gift Wrapping Sheets</td>
+                        <td>₱15 per sheet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+   
+    <div class="separator"></div>
+
+    <section id="testimonials" class="container">
+        <h2>What Our Customers Say 💚</h2>
+
+        <div class="testimonial-grid">
+            
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/9zIZrYx.jpeg" alt="Customer Photo 1">
+                <p>"Amazing quality and so great to know I'm supporting a sustainable cause. The paper bags are surprisingly strong and look fantastic!"</p>
+                <strong>— Maria L. (Local Entrepreneur)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/pRfEfN6.jpeg" alt="Customer Photo 2">
+                <p>"The banana fiber sheets are perfect for my art projects. A fantastic, natural, and truly eco-friendly alternative to normal craft paper."</p>
+                <strong>— Jason K. (Art Hobbyist)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/koozWxA.jpeg" alt="Customer Photo 3">
+                <p>"I used the bouquet wrapper for a special gift—it looked so rustic and elegant! Highly recommend Eco Banano for sustainable gifting."</p>
+                <strong>— Sarah G. (Event Planner)</strong>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.imgur.com/S6LbCiY.jpeg" alt="Customer Photo 4">
+                <p>"Fast delivery and excellent customer service. Proud to support local farmers and this incredible student initiative. Keep up the great work!"</p>
+                <strong>— Ben C. (Eco-Conscious Buyer)</strong>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <p style="text-align: center; margin-bottom: 20px; font-style: italic;">We're happy to answer any questions about our process, products, or sourcing.</p>
+        <div class="contact-details">
+            
+            <a 
+                href="https://maps.google.com/?q=Zone+2,+Barangay+Natatas,+Tanauan+City" 
+                target="_blank" 
+                class="contact-link"
+                title="View Address on Map"
+            >
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <strong>Address:</strong> Zone 2, Barangay Natatas, Tanauan City
                 </p>
-
-                <div class="price-callout hero-price-gsap">
-                    <div class="price-box shadow-glow">
-                        <span class="price-box-main">ONLY ₱15</span>
-                        <span class="price-box-sub">per item</span>
-                    </div>
-                </div>
-
-                <div class="hero-image-container hero-img-gsap">
-                    <img src="https://i.imgur.com/Iq2FWiO.jpeg"
-                             alt="Banana Pseudo Product Showcase"
-                             class="hero-image"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/Iq2FWiO.jpeg'">
-                </div>
-
-                <a href="#price" class="hero-cta hero-cta-gsap">
-                    Discover 15 PHP Value
-                </a>
-            </div>
-        </section>
-
-        <section id="sustainability" class="value-section">
-            <div class="container">
-                <h2 class="value-h2-gsap">Why Banana Pseudo?</h2>
-
-                <div class="value-grid">
-
-                    <div class="value-card value-card-gsap">
-                        <div class="value-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <h3>Zero-Waste Material</h3>
-                        <p>We utilize the pseudo-stem fiber—a byproduct of banana harvesting—turning agricultural waste into durable, beautiful goods. 100% biodegradable.</p>
-                    </div>
-
-                    <div class="value-card value-card-gsap">
-                        <div class="value-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857H21l-5.429 4.143L17.571 21 12 17.857 6.429 21l2.285-6.857L3 9.857h6.714L12 3z" /></svg>
-                        </div>
-                        <h3>Modern Aesthetic</h3>
-                        <p>The fiber boasts a natural, elegant texture that we shape into modern, minimalist designs. Style that doesn't cost the Earth.</p>
-                    </div>
-
-                    <div class="value-card value-card-gsap">
-                        <div class="value-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="value-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.592 1L15 11h-1v1h-1v1h-1v1h-1v-1h-1v-1h-1v-1h-1L6.408 10.402C6.92 9.497 7.89 9 9 9h3z" /></svg>
-                        </div>
-                        <h3>Accessible to All (₱15)</h3>
-                        <p>Through efficient local sourcing and production, we keep costs minimal, making high-quality, sustainable choices affordable for everyone.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="products" class="product-section">
-            <div class="container">
-                
-                <h2 class="product-h2-gsap">The Collection</h2>
-
-                <div class="product-grid">
-
-                    <div class="product-item product-item-gsap" 
-                        onclick="showImagePreview('https://i.imgur.com/lICTA92.jpeg')">
-                        <img src="https://i.imgur.com/lICTA92.jpeg"
-                             alt="Desk Organizer Tray"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/lICTA92.jpeg'">
-                        <div class="product-info">
-                            <h4>Eco Bag</h4>
-                            <p class="text-yellow-accent">₱15</p>
-                        </div>
-                    </div>
-
-                    <div class="product-item product-item-gsap"
-                        onclick="showImagePreview('https://i.imgur.com/qxiW2pH.jpeg')">
-                        <img src="https://i.imgur.com/qxiW2pH.jpeg"
-                             alt="Minimalist Clutch Bag"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/qxiW2pH.jpeg'">
-                        <div class="product-info">
-                            <h4>Ropes</h4>
-                            <p class="text-yellow-accent">₱15</p>
-                        </div>
-                    </div>
-
-                    <div class="product-item product-item-gsap"
-                        onclick="showImagePreview('https://i.imgur.com/34lrg2R.jpeg')">
-                        <img src="https://i.imgur.com/34lrg2R.jpeg"
-                             alt="Coaster Set"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/34lrg2R.jpeg'">
-                        <div class="product-info">
-                            <h4>Gift Wraps</h4>
-                            <p class="text-yellow-accent">₱15</p>
-                        </div>
-                    </div>
-
-                    <div class="product-item product-item-gsap"
-                        onclick="showImagePreview('https://i.imgur.com/aEsQsto.jpeg')">
-                        <img src="https://i.imgur.com/aEsQsto.jpeg"
-                             alt="Notebook Cover"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/aEsQsto.jpeg'">
-                        <div class="product-info">
-                            <h4>Bouquet Holder</h4>
-                            <p class="text-yellow-accent">₱15</p>
-                        </div>
-                    </div>
-
-                    <div class="product-item product-item-gsap"
-                        onclick="showImagePreview('https://i.imgur.com/nce90JB.jpeg')">
-                        <img src="https://i.imgur.com/nce90JB.jpeg"
-                             alt="Paper-like Cardboard"
-                             onerror="this.onerror=null;this.src='https://i.imgur.com/nce90JB.jpeg'">
-                        <div class="product-info">
-                            <h4>Sheets</h4>
-                            <p class="text-yellow-accent">₱15</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="price" class="cta-section">
-            <div class="container" style="max-width: 32rem; margin-left: auto; margin-right: auto;">
-                <p class="cta-p-gsap">
-                    ₱15.00
+            </a>
+            
+            
+            <a 
+                href="mailto:pseudomultipurposematerials@gmail.co" 
+                class="contact-link"
+                title="Send us an Email"
+            >
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <strong>Email:</strong> pseudomultipurposematerials@gmail.com
                 </p>
-                <h2 class="cta-h2-gsap">
-                    The Beautiful Choice For A Sustainable Future.
-                </h2>
-                <button onclick="showFacebookModal()"
-                    class="cta-button cta-button-gsap">
-                    Buy Now
-                </button>
-            </div>
-        </section>
+            </a>
+            
+            <a 
+                href="tel:+639480103467" 
+                class="contact-link"
+                title="Call us now"
+            >
+                <p>
+                    <i class="fas fa-phone"></i>
+                    <strong>Phone:</strong> 0948 010 3467
+                </p>
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 1.1em; font-weight: 600;">Let’s work together for a sustainable future!</p>
+        </div>
+    </section>
 
-    </main>
-
-    <footer class="footer">
-        <div class="container" style="text-align: center;">
-            <p style="font-weight: 600; font-size: 1rem; color: #fff; margin-bottom: 0.75rem;">
-                Connect with Banana Pseudo
-            </p>
-            <p style="font-size: 0.875rem; color: #fff;">
-                <strong>FB:</strong> <a href="https://www.facebook.com/profile.php?id=61566250813107" target="_blank" class="strong-link">Banana Pseudo Multipurpose materials</a>
-                <span class="separator"> | </span>
-                <br class="md:hidden">
-                <strong>TikTok:</strong> <a href="#" target="_blank" class="strong-link">Pseudo Multipurpose</a>
-            </p>
-            <p style="font-size: 0.875rem; color: #fff; margin-top: 0.5rem;">
-                <strong>Email:</strong> <a href="mailto:pseudomultipurposematerials@gmail.com" class="strong-link">pseudomultipurposematerials@gmail.com</a>
-                <span class="separator"> | </span>
-                <br class="md:hidden">
-                <strong>Call/Viber:</strong> <a href="tel:+639480103467" class="strong-link">0948-010-3467</a>
-            </p>
-            <p style="margin-top: 1.5rem; color: #94a3b8; font-size: 0.75rem;">
-                &copy; 2025 Banana Pseudo Inc.
-            </p>
+    <footer>
+        <div class="container">
+            &copy; 2025 Eco Banano Multipurpose Materials. All Rights Reserved. | Made with <i class="fas fa-leaf"></i> Banana Fiber
         </div>
     </footer>
 
-
-    <div id="image-preview-modal" class="message-box-overlay" onclick="closeImagePreview()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="close-button" onclick="closeImagePreview()">
-                &times;
-            </button>
-            <img id="preview-image" src="" alt="Product Preview" />
-        </div>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="">
+        <div id="lightbox-caption"></div>
     </div>
-
-
-    <div id="facebook-modal" class="message-box-overlay">
-        <div class="message-box-card" style="border-top: 4px solid var(--color-mid-green);">
-            <h3 id="facebook-title">Order Your Sustainable Style!</h3>
-            <p id="facebook-content">
-                To purchase your ₱15 Banana Pseudo product, please place your order directly through our official Facebook page.
-            </p>
-            <div class="button-group">
-                <button onclick="closeFacebookModal()" class="message-box-button" style="background-color: #e5e7eb; color: var(--color-dark-slate); font-weight: 500;">
-                    Maybe Later
-                </button>
-                <button onclick="confirmRedirect()" class="message-box-button" style="background-color: var(--color-accent-yellow); color: var(--color-dark-slate); font-weight: 700;">
-                    Go to Facebook Page
-                </button>
-            </div>
-        </div>
-    </div>
-
 
     <script>
-        // Register the ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-        // --- GSAP Animations ---
-        gsap.timeline()
-            .from(".logo", { duration: 0.5, y: -50, opacity: 0 })
-            .from(".hero-h1-gsap", { duration: 1, opacity: 0, y: 50, ease: "power2.out" }, 0.3)
-            .from(".hero-p-gsap", { duration: 0.8, opacity: 0, y: 30, ease: "power1.out" }, 0.6)
-            .from(".hero-price-gsap", { duration: 0.6, opacity: 0, scale: 0.8, ease: "back.out(1.7)" }, 0.8)
-            .from(".hero-img-gsap", { duration: 1, opacity: 0, y: 50, scale: 0.95, ease: "power2.out" }, 1.2)
-            .from(".hero-cta-gsap", { duration: 0.5, opacity: 0, scale: 0, ease: "back.out(2)" }, 1.8);
-        
-        gsap.from(".value-card-gsap", {
-            scrollTrigger: { trigger: ".value-section", start: "top 80%", end: "bottom 20%", },
-            y: 50, opacity: 0, scale: 0.9, stagger: 0.25, duration: 0.8, ease: "power2.out"
-        });
-        
-        gsap.from(".product-item-gsap", {
-            scrollTrigger: { trigger: ".product-section", start: "top 75%", end: "bottom 20%", },
-            x: 50, opacity: 0, stagger: 0.15, duration: 0.6, ease: "power1.out"
-        });
-        
-        gsap.from(".cta-section > .container > *", {
-            scrollTrigger: { trigger: ".cta-section", start: "top 85%", },
-            y: 30, opacity: 0, stagger: 0.2, duration: 0.7, ease: "power2.out"
+       
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.classList.contains('contact-link') || this.classList.contains('cta-button')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1, 
+                      
+                        scrollTo: { y: target, offsetY: 80 }, 
+                        ease: "power2.inOut"
+                    });
+                }
+            });
         });
 
-        // --- JavaScript for Mobile Menu Toggling ---
-
-        // --- JavaScript for Facebook Redirect Modal ---
-        const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61566250813107';
-        const facebookModal = document.getElementById('facebook-modal');
-
-        function showFacebookModal() {
-            facebookModal.classList.remove('hidden');
-            facebookModal.classList.add('flex');
+      
+        function revealSection(sectionId) {
+            gsap.fromTo(sectionId, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sectionId,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
         }
 
-        function closeFacebookModal() {
-            facebookModal.classList.add('hidden');
-            facebookModal.classList.remove('flex');
+       
+        revealSection("#about");
+        revealSection("#products");
+        revealSection("#how-made");
+        revealSection("#shop");
+        revealSection("#testimonials");
+        revealSection("#contact");
+
+      
+        gsap.from(".step", {
+            y: 30,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power1.out",
+            scrollTrigger: {
+                trigger: "#how-made",
+                start: "top 75%",
+                toggleActions: "play none none none"
+            }
+        });
+
+     
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(e) {
+           
+            document.body.style.overflow = 'hidden';
+
+            const imgSrc = e.target.src;
+            const imgAlt = e.target.alt;
+            
+            lightbox.style.display = 'block';
+            lightboxImg.src = imgSrc;
+            lightboxCaption.innerHTML = imgAlt;
         }
 
-        function confirmRedirect() {
-            window.open(FACEBOOK_URL, '_blank');
-            closeFacebookModal();
+        function closeLightbox(e) {
+           
+            if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
         }
+
+      
+        document.querySelectorAll('#products img, #testimonials img').forEach(img => {
+            img.addEventListener('click', openLightbox);
+        });
+
+       
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightbox.style.display === 'block') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
         
-        // --- JAVASCRIPT FOR IMAGE PREVIEW MODAL ---
-        const imagePreviewModal = document.getElementById('image-preview-modal');
-        const previewImage = document.getElementById('preview-image');
-
-        /**
-         * Shows the image preview modal (lightbox).
-         * @param {string} imageUrl The URL of the image to display.
-         */
-        function showImagePreview(imageUrl) {
-            previewImage.src = imageUrl;
-            imagePreviewModal.classList.remove('hidden');
-            imagePreviewModal.classList.add('flex');
-        }
-
-        /**
-         * Hides the image preview modal.
-         */
-        function closeImagePreview() {
-            imagePreviewModal.classList.add('hidden');
-            imagePreviewModal.classList.remove('flex');
-        }
     </script>
 </body>
 </html>
